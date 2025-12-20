@@ -22,16 +22,15 @@
 
 | Column             | Type       | Options     |
 | ------------------ | ------     | ----------- |
-| image              | text       | null: false |
 | title              | string     | null: false |
 | content            | text       | null: false |
-| category           | string     | null: false |
-| condition          | string     | null: false |
-| fee                | integer    | null: false |
-| region             | string     | null: false |
-| day                | integer    | null: false |
+| category_id        | integer    | null: false |
+| condition_id       | integer    | null: false |
+| fee_id             | integer    | null: false |
+| region_id          | integer    | null: false |
+| shippingtime_id    | integer    | null: false |
 | price              | integer    | null: false |
-| user_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -40,27 +39,26 @@
 ## recordsテーブル
 | Column             | Type       | Options     |
 | ------------------ | ------     | ----------- |
-| user_id            | references | null: false, foreign_key: true |
-| item_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 
 ## addressesテーブル
 
 | Column             | Type       | Options     |
 | ------------------ | ------     | ----------- |
-| address            | string     | null: false |
 | postcode           | integer    | null: false |
-| prefectures        | string     | null: false |
+| prefectures_id     | integer    | null: false |
 | municipalities     | string     | null: false |
 | streetaddress      | string     | null: false |
 | building           | string     | null: false |
 | phonenumber        | integer    | null: false |
-| record_id          | references | null: false, foreign_key: true |
+| record             | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :record
