@@ -34,7 +34,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :record
+- has_one :record
 
 ## recordsテーブル
 | Column             | Type       | Options     |
@@ -52,12 +52,12 @@
 
 | Column             | Type       | Options     |
 | ------------------ | ------     | ----------- |
-| postcode           | integer    | null: false |
-| prefectures_id     | integer    | null: false |
+| postcode           | string     | null: false |
+| prefecture_id      | integer    | null: false |
 | municipalities     | string     | null: false |
 | streetaddress      | string     | null: false |
-| building           | string     | null: false |
-| phonenumber        | integer    | null: false |
+| building           | string     |
+| phonenumber        | string     | null: false |
 | record             | references | null: false, foreign_key: true |
 
 ### Association
