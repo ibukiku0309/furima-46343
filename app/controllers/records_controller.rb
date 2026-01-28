@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   def index
-    @records = Record.all.order(created_at: :desc)
+    @item = Item.find(params[:item_id])
+    @record = Record.new
   end
 end
