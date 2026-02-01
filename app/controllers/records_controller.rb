@@ -1,12 +1,12 @@
 class RecordsController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
-    @record = RecordsAddresses.new
+    @record = RecordAddress.new
   end
 
   def create
     @item = Item.find(params[:item_id])
-    @record = RecordsAddresses.new
+    @record = RecordAddress.new
     if @record.valid?
       @record.save
       redirect_to root_path
