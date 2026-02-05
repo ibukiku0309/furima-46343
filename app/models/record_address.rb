@@ -1,7 +1,7 @@
 class RecordAddress
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :postcode, :prefecture_id, :municipalities, :streetaddress, :building, :phonenumber,
-                :record_id
+                :record_id, :token
 
   with_options presence: true do
     validates :user_id
@@ -11,6 +11,7 @@ class RecordAddress
     validates :municipalities
     validates :streetaddress
     validates :phonenumber
+    validates :token
   end
 
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
