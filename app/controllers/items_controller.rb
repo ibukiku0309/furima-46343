@@ -58,8 +58,6 @@ class ItemsController < ApplicationController
   end
 
   def redirect_if_sold
-    @item = Item.find(params[:id])
-
     return unless @item.record.present?
 
     redirect_to root_path
