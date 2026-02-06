@@ -70,6 +70,11 @@ RSpec.describe RecordAddress, type: :model do
         @record_address.valid?
         expect(@record_address.errors.full_messages).to include('Phonenumber は10〜11桁の半角数字で入力してください')
       end
+      it 'phonenumberが12桁以上だと保存できない' do
+        @record_address.phonenumber = '090123456789'
+        @record_address.valid?
+        expect(@record_address.errors.full_messages).to include('Phonenumber は10〜11桁の半角数字で入力してください')
+      end
 
       it 'user_idが空だと保存できない' do
         @record_address.user_id = nil
